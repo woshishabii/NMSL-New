@@ -6,3 +6,7 @@ class Base:
             'Alpha3-1'
         ]
         self.author = 'woshishabi'
+
+        self.log_dir = 'logs'
+
+        self.language = 'cn'

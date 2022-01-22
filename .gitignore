@@ -1,2 +1,5 @@
 .idea
 workspace.code-workspace
+*.pyc
+*.log
+material
