@@ -9,4 +9,4 @@ class Base:
 
         self.log_dir = 'logs'
 
-        self.language = 'cn'
+        self.language = 'en'

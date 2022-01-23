@@ -33,6 +33,6 @@ class BasicLogger:
             os.mkdir(self.settings.log_dir)
         self.file_object = open(self.file_path, 'a', encoding='utf-8')
 
-    def log(self, message='', level=INFO):
-        print(f'[ {time.strftime("%Y-%m-%d-%H:%M:%S", time.localtime())} | {levels[level]} ] {message}')
+    def log(self, message='', level=INFO, end='\n'):
+        print(f'[ {time.strftime("%Y-%m-%d-%H:%M:%S", time.localtime())} | {levels[level]} ] {message}', end=end)
         self.file_object.write(f'[ {time.strftime("%Y-%m-%d-%H:%M:%S", time.localtime())} | {levels[level]} ] {message}\n')
