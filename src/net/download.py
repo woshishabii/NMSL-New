@@ -1,3 +1,10 @@
+"""
+下载工具
+这段代码来自知乎：手把手教你实现一个 Python 多线程下载器
+https://zhuanlan.zhihu.com/p/369531344
+"""
+
+
 from __future__ import annotations
 # 用于显示进度条
 from tqdm import tqdm
@@ -10,11 +17,6 @@ import signal
 from retry import retry
 signal.signal(signal.SIGINT, multitasking.killall)
 
-
-"""
-这段代码来自知乎：手把手教你实现一个 Python 多线程下载器
-https://zhuanlan.zhihu.com/p/369531344
-"""
 
 # 请求头
 headers = {
