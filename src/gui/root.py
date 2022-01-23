@@ -9,6 +9,35 @@ import wx
 import webbrowser
 
 
+class AddVersionFrame(wx.Frame):
+    """
+    下载新服务端GUI类
+    """
+    def __init__(self, *args, **kw):
+        # 调用父类__init__函数
+        super(AddVersionFrame, self).__init__(*args, **kw)
+
+        #设置窗口大小
+        '''self.SetSize((520, 250))
+        self.SetMinSize((520, 250))
+        self.SetMaxSize((520, 250))'''
+
+        # 创建面板
+        self.panel = wx.Panel(self)
+
+        # 生成黑色加粗字体
+        self.st = wx.StaticText(self.panel, label="Naughty Minecraft Server Launcher")
+        self.font = self.st.GetFont()
+        self.font.PointSize += 10
+        font = self.font.Bold()
+        self.st.SetFont(font)
+
+        # 创建一个sizer来管理子部件的布局
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        sizer.Add(self.st, wx.SizerFlags().Border(wx.TOP | wx.LEFT, 25))
+        self.panel.SetSizer(sizer)
+
+
 class MainFrame(wx.Frame):
     """
     主GUI类
@@ -23,10 +52,10 @@ class MainFrame(wx.Frame):
         self.SetMinSize((520, 250))
 
         # 在框架中创建一个面板（Panel）
-        panel = wx.Panel(self)
+        self.panel = wx.Panel(self)
 
         # 生成黑色加粗字体
-        st = wx.StaticText(panel, label="Naughty Minecraft Server Launcher")
+        st = wx.StaticText(self.panel, label="Naughty Minecraft Server Launcher")
         font = st.GetFont()
         font.PointSize += 10
         font = font.Bold()
@@ -35,7 +64,7 @@ class MainFrame(wx.Frame):
         # 创建一个sizer来管理子部件的布局
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(st, wx.SizerFlags().Border(wx.TOP|wx.LEFT, 25))
-        panel.SetSizer(sizer)
+        self.panel.SetSizer(sizer)
 
         # 创建菜单栏
         self.makeMenuBar()
@@ -57,7 +86,7 @@ class MainFrame(wx.Frame):
         helloItem = fileMenu.Append(-1, "&Hello...\tCtrl-H",
                 "在状态栏里显示的信息")
         fileMenu.AppendSeparator()'''
-        downloadVersionItem = fileMenu.Append(-1, "下载新版本(&A)\tCtrl-A", '下载一个新的服务端')
+        downloadVersionItem = fileMenu.Append(-1, "添加新的服务端(&A)\tCtrl-A", '下载一个新的服务端')
         fileMenu.AppendSeparator()
         changePreference = fileMenu.Append(-1, '首选项(&P)', '修改NMSL设置')
         fileMenu.AppendSeparator()
@@ -89,7 +118,10 @@ class MainFrame(wx.Frame):
 
 
     def OnAddVersion(self, event):
-        wx.MessageBox("测试菜单项", "下载新版本", wx.OK|wx.ICON_INFORMATION)
+        # wx.MessageBox("测试菜单项", "下载新版本", wx.OK|wx.ICON_INFORMATION)
+        self.frameAddVersion = AddVersionFrame(self)
+        self.frameAddVersion.Show(True)
+
 
 
     def OnChangePreference(self, event):
