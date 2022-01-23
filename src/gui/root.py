@@ -59,6 +59,8 @@ class MainFrame(wx.Frame):
         fileMenu.AppendSeparator()'''
         downloadVersionItem = fileMenu.Append(-1, "下载新版本(&A)\tCtrl-A", '下载一个新的服务端')
         fileMenu.AppendSeparator()
+        changePreference = fileMenu.Append(-1, '首选项(&P)', '修改NMSL设置')
+        fileMenu.AppendSeparator()
         # 当使用一个预定义的值时就不需要再自定义函数
         exitItem = fileMenu.Append(wx.ID_EXIT)
 
@@ -80,13 +82,18 @@ class MainFrame(wx.Frame):
         # each of the menu items. That means that when that menu item is
         # activated then the associated handler function will be called.
         self.Bind(wx.EVT_MENU, self.OnAddVersion, downloadVersionItem)
+        self.Bind(wx.EVT_MENU, self.OnChangePreference, changePreference)
         self.Bind(wx.EVT_MENU, self.OnExit, exitItem)
         self.Bind(wx.EVT_MENU, self.OpenRepo, webItem)
         self.Bind(wx.EVT_MENU, self.OnAbout, aboutItem)
 
 
     def OnAddVersion(self, event):
-        wx.MessageBox("测试菜单项", "下载新版本", wx.OK|wx.ICON_AUTH_NEEDED)
+        wx.MessageBox("测试菜单项", "下载新版本", wx.OK|wx.ICON_INFORMATION)
+
+
+    def OnChangePreference(self, event):
+        wx.MessageBox("测试菜单项", "首选项", wx.OK|wx.ICON_INFORMATION)
 
 
     def OnExit(self, event):
