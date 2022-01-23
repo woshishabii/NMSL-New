@@ -6,12 +6,15 @@ by:woshishabi
 """
 
 # 导入库
+import wx
+
 from settings import Settings
 from log import logger
 from lang import Language
 from java import jf
 from net import download
 from net import get_vanilla
+from gui import root
 
 
 # 导入主函数
@@ -39,7 +42,14 @@ def main():
     # sl_log.log(message=get_vanilla.get_by_mojang(sl_settings), level=sl_log.DEBUG)
 
 
+def dev():
+    mainAPP = wx.App()
+    mainFrame = root.MainFrame(None, title='NMSL Alpha 1.0.2')
+    mainFrame.Show()
+    mainAPP.MainLoop()
+
 if __name__ == '__main__':
     # TODO
     # What to do?
-    main()
+    # main()
+    dev()

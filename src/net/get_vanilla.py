@@ -16,13 +16,7 @@ def get_by_mojang(sl_settings):
     # Original Data / 原始数据
     o_data = json.loads(manifest_request.text)
     # sl_log.log(message=data)
-    p_data = {}
-    # p_data['latest'] = o_data['latest']
-    p_data['release'] = {}
-    p_data['snapshot'] = {}
-    p_data['old_beta'] = {}
-    p_data['old_alpha'] = {}
-
+    p_data = {'release': {}, 'snapshot': {}, 'old_beta': {}, 'old_alpha': {}}
     for temp in o_data['versions']:
         # print(temp)
         p_data[temp['type']][temp['id']] = [temp['url'], temp['time']]
