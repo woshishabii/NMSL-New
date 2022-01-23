@@ -36,7 +36,7 @@ def main():
     sl_log.log(message=f'{sl_lang.java_detected}:{java_list}')
 
     # 测试
-    sl_log.log(message=get_vanilla.get_by_mojang(sl_settings), level=sl_log.DEBUG)
+    # sl_log.log(message=get_vanilla.get_by_mojang(sl_settings), level=sl_log.DEBUG)
 
 
 if __name__ == '__main__':
