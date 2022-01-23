@@ -33,6 +33,10 @@ class BasicLogger:
         """
         self.settings = settings
 
+        self.DEBUG = -1
+        self.INFO = 0
+        self.ERROR = 1
+
         self.log_time = time.strftime('%Y-%m-%d-%H%M%S', time.localtime())
         self.file_path = f'{settings.log_dir}/{self.log_time}.log'
 

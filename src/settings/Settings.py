@@ -26,3 +26,8 @@ class Base:
 
         # 程序语言
         self.language = 'cn'
+
+        # 下载源
+        self.sources = {
+            'mojang':'https://launchermeta.mojang.com/mc/game/version_manifest.json',
+        }

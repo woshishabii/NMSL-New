@@ -11,6 +11,7 @@ from log import logger
 from lang import Language
 from java import jf
 from net import download
+from net import get_vanilla
 
 
 # 导入主函数
@@ -34,7 +35,8 @@ def main():
     # Java日志
     sl_log.log(message=f'{sl_lang.java_detected}:{java_list}')
 
-    # download.download(sl_log, sl_lang, 'https://addons-ecs.forgesvc.net/api/v2/addon/search?gameId=432&pageSize=50&categoryId=0&sectionId=6&sort=5%E2%80%99', 'curseforge.json')
+    # 测试
+    sl_log.log(message=get_vanilla.get_by_mojang(sl_settings), level=sl_log.DEBUG)
 
 
 if __name__ == '__main__':
