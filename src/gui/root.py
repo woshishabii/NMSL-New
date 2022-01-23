@@ -75,7 +75,7 @@ class MainFrame(wx.Frame):
         menuBar.Append(fileMenu, "文件(&F)")
         menuBar.Append(helpMenu, "帮助(&H)")
 
-        # Give the menu bar to the frame
+        # 将菜单栏添加到框架
         self.SetMenuBar(menuBar)
 
         # Finally, associate a handler function with the EVT_MENU event for
@@ -97,7 +97,7 @@ class MainFrame(wx.Frame):
 
 
     def OnExit(self, event):
-        """Close the frame, terminating the application."""
+        """关闭框架，终止程序"""
         self.Close(True)
 
 
