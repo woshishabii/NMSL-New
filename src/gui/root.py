@@ -6,6 +6,7 @@ by:woshishabi
 
 # 导入库
 import wx
+import webbrowser
 
 
 class MainFrame(wx.Frame):
@@ -56,13 +57,14 @@ class MainFrame(wx.Frame):
         helloItem = fileMenu.Append(-1, "&Hello...\tCtrl-H",
                 "在状态栏里显示的信息")
         fileMenu.AppendSeparator()'''
-        downloadVersionItem = fileMenu.Append(-1, "下载新版本(&A)", '下载一个新的服务端')
+        downloadVersionItem = fileMenu.Append(-1, "下载新版本(&A)\tCtrl-A", '下载一个新的服务端')
         fileMenu.AppendSeparator()
         # 当使用一个预定义的值时就不需要再自定义函数
         exitItem = fileMenu.Append(wx.ID_EXIT)
 
         # 创建一个包含“关于”的Help菜单
         helpMenu = wx.Menu()
+        webItem = helpMenu.Append(-1, "打开Gitee开源仓库", "打开NMSL的开源仓库")
         aboutItem = helpMenu.Append(wx.ID_ABOUT)
 
         # 创建一个菜单栏并添加两个项目，'&'后面的字母定义了一个有助于记忆的菜单。
@@ -77,13 +79,23 @@ class MainFrame(wx.Frame):
         # Finally, associate a handler function with the EVT_MENU event for
         # each of the menu items. That means that when that menu item is
         # activated then the associated handler function will be called.
-        self.Bind(wx.EVT_MENU, self.OnExit,  exitItem)
+        self.Bind(wx.EVT_MENU, self.OnAddVersion, downloadVersionItem)
+        self.Bind(wx.EVT_MENU, self.OnExit, exitItem)
+        self.Bind(wx.EVT_MENU, self.OpenRepo, webItem)
         self.Bind(wx.EVT_MENU, self.OnAbout, aboutItem)
+
+
+    def OnAddVersion(self, event):
+        wx.MessageBox("测试菜单项", "下载新版本", wx.OK|wx.ICON_AUTH_NEEDED)
 
 
     def OnExit(self, event):
         """Close the frame, terminating the application."""
         self.Close(True)
+
+
+    def OpenRepo(self, event):
+        webbrowser.open(url='https://gitee.com/chen_xingyu/NMSL-New', new=0, autoraise=True)
 
 
     def OnAbout(self, event):

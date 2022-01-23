@@ -15,7 +15,7 @@ class Base:
         self.name = 'Naughty Minecraft Server Launcher'
         # NMSL程序版本
         self.version = [
-            ['alpha', 3, 2],
+            ['alpha', 3, 3],
             'Alpha1.0.1'
         ]
         # NMSL开发者（未使用）
